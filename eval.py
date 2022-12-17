@@ -13,21 +13,21 @@ from tensorboardX import SummaryWriter
 # Parse arguments
 parser = argparse.ArgumentParser()
 # Dataset paths
-parser.add_argument('--val_img_dir', type=str,
+parser.add_argument('--val_img_dir', default='/mnt/Datasets/WFLW/WFLW_test/images/', type=str,
                     help='Validation image directory')
-parser.add_argument('--val_landmarks_dir', type=str,
+parser.add_argument('--val_landmarks_dir', default='/mnt/Datasets/WFLW/WFLW_test/landmarks', type=str,
                     help='Validation landmarks directory')
-parser.add_argument('--num_landmarks', type=int, default=68,
+parser.add_argument('--num_landmarks', type=int, default=98,
                     help='Number of landmarks')
 
 # Checkpoint and pretrained weights
-parser.add_argument('--ckpt_save_path', type=str,
+parser.add_argument('--ckpt_save_path', default='', type=str,
                     help='a directory to save checkpoint file')
-parser.add_argument('--pretrained_weights', type=str,
+parser.add_argument('--pretrained_weights', default='ckpt/WFLW_4HG.pth', type=str,
                     help='a directory to save pretrained_weights')
 
 # Eval options
-parser.add_argument('--batch_size', type=int, default=25,
+parser.add_argument('--batch_size', type=int, default=20,
                     help='learning rate decay after each epoch')
 
 # Network parameters

@@ -363,6 +363,5 @@ def get_dataset(val_img_dir, val_landmarks_dir, batch_size,
                                                    shuffle=False,
                                                    num_workers=6)
     data_loaders = {'val': val_dataloader}
-    dataset_sizes = {}
-    dataset_sizes['val'] = len(val_dataset)
+    dataset_sizes = {'val': len(val_dataset)}
     return data_loaders, dataset_sizes

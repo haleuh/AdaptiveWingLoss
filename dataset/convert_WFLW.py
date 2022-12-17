@@ -1,12 +1,13 @@
 import sys
-sys.path.insert(0, "../utils/")
 import numpy as np
 import os
 import glob
 import scipy.io as sio
 import cv2
+import math
+
 from skimage import io
-from utils import cv_crop
+from utils.utils import cv_crop
 import torch
 from joblib import Parallel, delayed
 
@@ -140,11 +141,11 @@ def process_single(single, image_path, image_save_path, landmarks_save_path):
         np.save(os.path.join(landmarks_save_path, os.path.basename(image_full_path[:-4]+ '_' + str(single.idx) + '.pts')), new_landmarks)
 
 if __name__ == '__main__':
-    image_path = './WFLW_images/'
-    meta_subset_path = './WFLW_annotations/list_98pt_rect_attr_train_test/list_98pt_rect_attr_test.txt'
-    meta_path = './WFLW_annotations/list_98pt_rect_attr_train_test/list_98pt_rect_attr_test.txt'
-    image_save_path = './WFLW_test/images/'
-    landmarks_save_path = './WFLW_test/landmarks/'
+    image_path = '/mnt/Datasets/WFLW/WFLW_images/'
+    meta_subset_path = '/mnt/Datasets/WFLW/WFLW_annotations/list_98pt_rect_attr_train_test/list_98pt_rect_attr_test.txt'
+    meta_path = '/mnt/Datasets/WFLW/WFLW_annotations/list_98pt_rect_attr_train_test/list_98pt_rect_attr_test.txt'
+    image_save_path = '/mnt/Datasets/WFLW/WFLW_test/images/'
+    landmarks_save_path = '/mnt/Datasets/WFLW/WFLW_test/landmarks/'
     if not os.path.exists(image_save_path):
         os.makedirs(image_save_path)
     if not os.path.exists(landmarks_save_path):
